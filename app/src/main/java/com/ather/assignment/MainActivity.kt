@@ -2,6 +2,8 @@ package com.ather.assignment
 
 import android.os.Bundle
 import android.widget.GridLayout
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.ather.assignment.util.OnSwipeTouchListener
@@ -70,12 +72,18 @@ class MainActivity : AppCompatActivity() {
                 if(!viewModel.isMatrixFull(viewModel.matrix)){
                     viewModel.traverseAndSlideTilesLeft(mGridLayout)
                 }
+                else {
+                    Toast.makeText(applicationContext, getString(R.string.gave_over_message), LENGTH_LONG).show()
+                }
                 super.onSwipeLeft()
             }
 
             override fun onSwipeRight() {
                 if(!viewModel.isMatrixFull(viewModel.matrix)) {
                     viewModel.traverseAndSlideTilesRight(mGridLayout)
+                }
+                else {
+                    Toast.makeText(applicationContext, getString(R.string.gave_over_message), LENGTH_LONG).show()
                 }
                 super.onSwipeRight()
             }
@@ -84,12 +92,18 @@ class MainActivity : AppCompatActivity() {
                 if(!viewModel.isMatrixFull(viewModel.matrix)) {
                     viewModel.traverseAndSlideTilesTop(mGridLayout)
                 }
+                else {
+                    Toast.makeText(applicationContext, getString(R.string.gave_over_message), LENGTH_LONG).show()
+                }
                 super.onSwipeTop()
             }
 
             override fun onSwipeBottom() {
                 if(!viewModel.isMatrixFull(viewModel.matrix)) {
                     viewModel.traverseAndSlideTilesBottom(mGridLayout)
+                }
+                else {
+                    Toast.makeText(applicationContext, getString(R.string.gave_over_message), LENGTH_LONG).show()
                 }
                 super.onSwipeBottom()
             }

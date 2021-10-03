@@ -2,4 +2,5 @@
     <string name="app_name">2048 Clone</string>
     <string name="score_label_to_show">Score:</string>
     <string name="empty_quotes">  </string>
+    <string name="gave_over_message">Game Over, please restart</string>
 </resources>
