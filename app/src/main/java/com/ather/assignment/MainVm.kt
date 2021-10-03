@@ -5,9 +5,6 @@ import android.widget.GridLayout
 import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
 import com.ather.assignment.base.BaseViewModel
-import com.ather.assignment.data.DoubleTile
-import com.ather.assignment.data.Tile
-
 
 class MainVm : BaseViewModel() {
 
@@ -302,7 +299,6 @@ class MainVm : BaseViewModel() {
             matrix[0][2], matrix[1][2],matrix[2][2], matrix[3][2]))
         val ListColumn4 = moveEmptyItemsToBeginning(arrayOf(
             matrix[0][3], matrix[1][3],matrix[2][3], matrix[3][3]))
-
 
         for(i in 0 until 4){
             val tileTV = parent.getChildAt(i*4) as TextView
