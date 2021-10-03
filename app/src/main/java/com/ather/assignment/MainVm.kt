@@ -13,15 +13,18 @@ class MainVm : BaseViewModel() {
 
     private val DEBUG_TAG = "DEBUG_TAG_MAIN_VM"
 
+    /**
+     * 2D matrix that stores the tiles data position-wise
+     */
     private var matrix =  Array(4) {Array(4) {""} }
 
+    /**
+     * LiveData to track score and to emit it to Activity
+     */
     var scoreLiveData: MutableLiveData<Int> = MutableLiveData(0)
-    var tileLiveData: MutableLiveData<Tile> = MutableLiveData()
-    var gameStartTilesLiveData: MutableLiveData<DoubleTile> = MutableLiveData()
 
     /**
      * Get X coordinate of a View
-     *
      * view: View -> Any generic View
      */
     fun getXCoordinate(view: View): Float {
@@ -30,13 +33,16 @@ class MainVm : BaseViewModel() {
 
     /**
      * Get Y coordinate of a View
-     *
      * view: View -> Any generic View
      */
     fun getYCoordinate(view: View): Float {
         return view.getY()
     }
 
+    /**
+     * Clear whole game data
+     * parent: GridLayout -> The Grid Layout used to make the Tiles View
+     */
     fun clearData(parent: GridLayout){
         matrix =  Array(4) {Array(4) {""} }
         for(i in 0 until parent.childCount){
@@ -70,17 +76,7 @@ class MainVm : BaseViewModel() {
             else if(i < 16){
                 matrix[3][i%4] = tileTV.text.toString()
             }
-
-            val name = ""
         }
-    }
-
-    fun getRandomTwoOrFour() : String{
-        return if ((0..1).random() == 0) "2" else "4"
-    }
-
-    fun getRandomWithinGridSize(fromNumber: Int, tillNumber: Int) : Int {
-        return (fromNumber..tillNumber-1).random()
     }
 
     /**
@@ -118,7 +114,7 @@ class MainVm : BaseViewModel() {
     }
 
     /**
-     * Populates a 2 or 4 on a random tile
+     * Populates a 2 or 4 on a random tile after a swipe
      * parent: GridLayout -> The Grid Layout used to make the Tiles View
      */
     fun populateRandomTwoOrFour(parent: GridLayout) {
@@ -160,6 +156,12 @@ class MainVm : BaseViewModel() {
         }
     }
 
+    /**
+     * Check if matrix is full.
+     * This check if used attempting to slide matrix items
+     *
+     * matrix: Array<Array<String>> -> 2D matrix that stores the tiles data position-wise
+     */
     fun isMatrixFull(matrix: Array<Array<String>>) : Boolean{
         for(row in matrix){
             for(item in row){
@@ -171,6 +173,11 @@ class MainVm : BaseViewModel() {
         return true
     }
 
+    /**
+     * check every row in the matrix, move from left to right.
+     *
+     * parent: GridLayout -> The Grid Layout used to make the Tiles View
+     */
     fun traverseAndSlideTilesLeft(parent: GridLayout){
         val ListRow1 = moveEmptyItemsToEnd(arrayOf(
             matrix[0][0], matrix[0][1],matrix[0][2], matrix[0][3]))
@@ -204,6 +211,11 @@ class MainVm : BaseViewModel() {
         populateRandomTwoOrFour(parent)
     }
 
+    /**
+     * check every row in the matrix, move from right to left.
+     *
+     * parent: GridLayout -> The Grid Layout used to make the Tiles View
+     */
     fun traverseAndSlideTilesRight(parent: GridLayout){
         val ListRow1 = moveEmptyItemsToBeginning(arrayOf(
             matrix[0][0], matrix[0][1],matrix[0][2], matrix[0][3]))
@@ -236,6 +248,11 @@ class MainVm : BaseViewModel() {
         }
     }
 
+    /**
+     * check every row in the matrix, move from top to bottom.
+     *
+     * parent: GridLayout -> The Grid Layout used to make the Tiles View
+     */
     fun traverseAndSlideTilesTop(parent: GridLayout){
 
         val ListColumn1 = moveEmptyItemsToEnd(arrayOf(
@@ -270,6 +287,11 @@ class MainVm : BaseViewModel() {
         populateRandomTwoOrFour(parent)
     }
 
+    /**
+     * check every row in the matrix, move from bottom to top.
+     *
+     * parent: GridLayout -> The Grid Layout used to make the Tiles View
+     */
     fun traverseAndSlideTilesBottom(parent: GridLayout){
 
         val ListColumn1 = moveEmptyItemsToBeginning(arrayOf(
@@ -306,7 +328,13 @@ class MainVm : BaseViewModel() {
     }
 
     /**
-     * For left and top swipe
+     * Called For left and top swipe.
+     * Its job is:
+     * 1. Move all empty elements to end of the row
+     * 2. Detect same consecutive elements
+     * 3. merge two consecutive elements to one and double it value
+     *
+     * array: Array<String> -> 1D array of each row or column
      */
     fun moveEmptyItemsToEnd(array: Array<String>): Array<String> {
         var newArray =  Array(array.size) {" "}
@@ -321,8 +349,7 @@ class MainVm : BaseViewModel() {
         for(i in 0 until newArray.size-1){
             if(!newArray[i].trim().equals("") && newArray[i].equals(newArray[i+1])){
                 newArray[i] = (newArray[i].toInt()*2).toString()
-                val score = scoreLiveData.value!! + newArray[i].toInt()
-                scoreLiveData.postValue(score)
+                updateScore(newArray[i])
                 for (j in i+1 until newArray.size-1){
                     newArray[j] = newArray[j+1]
                 }
@@ -333,7 +360,13 @@ class MainVm : BaseViewModel() {
     }
 
     /**
-     * For right and bottom swipe
+     * Called For right and bottom swipe.
+     * Its job is:
+     * 1. Move all empty elements to beginning of the row
+     * 2. Detect same consecutive elements
+     * 3. merge two consecutive elements to one and double it value
+     *
+     * array: Array<String> -> 1D array of each row or column
      */
     fun moveEmptyItemsToBeginning(array: Array<String>): Array<String> {
         var newArray =  Array(array.size) {" "}
@@ -348,8 +381,7 @@ class MainVm : BaseViewModel() {
         for(i in newArray.size-1 downTo 1){
             if(!newArray[i].trim().equals("") && newArray[i].equals(newArray[i-1])){
                 newArray[i] = (newArray[i].toInt()*2).toString()
-                val score = scoreLiveData.value!! + newArray[i].toInt()
-                scoreLiveData.postValue(score)
+                updateScore(newArray[i])
                 for(j in i-1 downTo 1){
                     newArray[j] = newArray[j-1]
                 }
@@ -357,6 +389,16 @@ class MainVm : BaseViewModel() {
             }
         }
         return newArray
+    }
+
+    /**
+     * Update score and emit score LiveData to Activity to be shown there
+     *
+     * highestElement: String -> Value of tile that is merged
+     */
+    fun updateScore(mergedElement: String){
+        val score = scoreLiveData.value!! + mergedElement.toInt()
+        scoreLiveData.postValue(score)
     }
 
 }

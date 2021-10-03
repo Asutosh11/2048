@@ -2,7 +2,6 @@ package com.ather.assignment
 
 import android.os.Bundle
 import android.widget.GridLayout
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.ather.assignment.util.OnSwipeTouchListener
@@ -22,18 +21,27 @@ class MainActivity : AppCompatActivity() {
         startGame()
     }
 
-    fun setUI(){
+    /**
+     * Initialize the UI when Screen loads first time
+     */
+    fun setUI() {
         mGridLayout = findViewById(R.id.gl_board) as GridLayout
-        restart_btn.setOnClickListener{
+        restart_btn.setOnClickListener {
             startGame()
         }
     }
 
-    fun startGame(){
+    /**
+     * Start or Restart the game, the game logic is being taken care in MainVM.
+     */
+    fun startGame() {
         setData()
         observeLiveData()
     }
 
+    /**
+     * Set the game data and game variables
+     */
     private fun setData() {
         viewModel.clearData(mGridLayout)
         viewModel.makeMatrix(mGridLayout)
@@ -41,12 +49,10 @@ class MainActivity : AppCompatActivity() {
         handleSwipes()
     }
 
-    private fun observeLiveData(){
-        viewModel.tileLiveData.observe(this, {
-            it.let {
-                it.tileView.text = it.numberInString
-            }
-        })
+    /**
+     * Observe all LiveData here, which are being emitted from MainVM.
+     */
+    private fun observeLiveData() {
         viewModel.scoreLiveData.observe(this, {
             it.let {
                 score_tv.text = getString(R.string.score_label_to_show) + " " + it.toString()
@@ -54,10 +60,12 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-
+    /**
+     * Use OnSwipeTouchListener Util to handle UI scipes here.
+     */
     private fun handleSwipes() {
 
-        cl_root.setOnTouchListener(object: OnSwipeTouchListener(this@MainActivity) {
+        cl_root.setOnTouchListener(object : OnSwipeTouchListener(this@MainActivity) {
             override fun onSwipeLeft() {
                 viewModel.traverseAndSlideTilesLeft(mGridLayout)
                 super.onSwipeLeft()
