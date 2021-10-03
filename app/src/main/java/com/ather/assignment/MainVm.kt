@@ -13,7 +13,7 @@ class MainVm : BaseViewModel() {
     /**
      * 2D matrix that stores the tiles data position-wise
      */
-    private var matrix =  Array(4) {Array(4) {""} }
+    var matrix =  Array(4) {Array(4) {""} }
 
     /**
      * LiveData to track score and to emit it to Activity

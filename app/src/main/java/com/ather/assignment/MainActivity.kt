@@ -67,22 +67,30 @@ class MainActivity : AppCompatActivity() {
 
         cl_root.setOnTouchListener(object : OnSwipeTouchListener(this@MainActivity) {
             override fun onSwipeLeft() {
-                viewModel.traverseAndSlideTilesLeft(mGridLayout)
+                if(!viewModel.isMatrixFull(viewModel.matrix)){
+                    viewModel.traverseAndSlideTilesLeft(mGridLayout)
+                }
                 super.onSwipeLeft()
             }
 
             override fun onSwipeRight() {
-                viewModel.traverseAndSlideTilesRight(mGridLayout)
+                if(!viewModel.isMatrixFull(viewModel.matrix)) {
+                    viewModel.traverseAndSlideTilesRight(mGridLayout)
+                }
                 super.onSwipeRight()
             }
 
             override fun onSwipeTop() {
-                viewModel.traverseAndSlideTilesTop(mGridLayout)
+                if(!viewModel.isMatrixFull(viewModel.matrix)) {
+                    viewModel.traverseAndSlideTilesTop(mGridLayout)
+                }
                 super.onSwipeTop()
             }
 
             override fun onSwipeBottom() {
-                viewModel.traverseAndSlideTilesBottom(mGridLayout)
+                if(!viewModel.isMatrixFull(viewModel.matrix)) {
+                    viewModel.traverseAndSlideTilesBottom(mGridLayout)
+                }
                 super.onSwipeBottom()
             }
         })
