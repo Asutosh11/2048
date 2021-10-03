@@ -7,4 +7,5 @@
 
     <color name="white">#FFFFFFFF</color>
     <color name="block_background">#F3F6F6</color>
+    <color name="screen_background">#FFFFFF</color>
 </resources>

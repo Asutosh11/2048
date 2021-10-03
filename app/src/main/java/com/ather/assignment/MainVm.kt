@@ -328,6 +328,9 @@ class MainVm : BaseViewModel() {
         return newArray
     }
 
+    /**
+     * For right and bottom swipe
+     */
     fun moveEmptyItemsToBeginning(array: Array<String>): Array<String> {
         var newArray =  Array(array.size) {" "}
         var nonZeroNoCount = -1

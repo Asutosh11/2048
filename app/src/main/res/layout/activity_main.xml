@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:id="@+id/cl_root"
-    >
+    android:background="@color/screen_background">
 
     <GridLayout
         android:id="@+id/gl_board"
@@ -23,176 +21,177 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:tag="tile1"
             android:id="@+id/tv_tile1"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile1"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
+
         <TextView
-            android:tag="tile2"
             android:id="@+id/tv_tile2"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile2"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile3"
             android:id="@+id/tv_tile3"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile3"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile4"
             android:id="@+id/tv_tile4"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile4"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile5"
             android:id="@+id/tv_tile5"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile5"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile6"
             android:id="@+id/tv_tile6"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile6"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile7"
             android:id="@+id/tv_tile7"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile7"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile8"
             android:id="@+id/tv_tile8"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile8"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile9"
             android:id="@+id/tv_tile9"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile9"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile10"
             android:id="@+id/tv_tile10"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile10"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile11"
             android:id="@+id/tv_tile11"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile11"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile12"
             android:id="@+id/tv_tile12"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile12"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile13"
             android:id="@+id/tv_tile13"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile13"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile14"
             android:id="@+id/tv_tile14"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile14"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile15"
             android:id="@+id/tv_tile15"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile15"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
-            android:tag="tile16"
             android:id="@+id/tv_tile16"
             android:layout_width="@dimen/dimen_60dp"
             android:layout_height="@dimen/dimen_60dp"
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
+            android:tag="tile16"
             android:text=" "
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
@@ -201,15 +200,32 @@
     </GridLayout>
 
     <Button
-        android:padding="@dimen/dimen_10dp"
-        android:textColor="@color/white"
-        android:background="@drawable/drawable_button"
         android:id="@+id/restart_btn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@drawable/drawable_button"
+        android:padding="@dimen/dimen_10dp"
         android:text="Restart Game"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/score_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/score_tv"
+        app:layout_constraintTop_toTopOf="@+id/score_tv" />
+
+    <TextView
+        android:id="@+id/score_tv"
+        android:layout_width="@dimen/dimen_130dp"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@drawable/drawable_score_back"
+        android:gravity="center"
+        android:text="Score: 150"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_15sp"
         app:layout_constraintBottom_toTopOf="@+id/gl_board"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/restart_btn"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
