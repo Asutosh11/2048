@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -29,7 +30,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
         <TextView
             android:tag="tile2"
@@ -39,7 +40,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -50,7 +51,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -61,7 +62,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -72,7 +73,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -83,7 +84,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -94,7 +95,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -105,7 +106,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -116,7 +117,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -127,7 +128,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -138,7 +139,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -149,7 +150,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -160,7 +161,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -171,7 +172,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -182,7 +183,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
         <TextView
@@ -193,10 +194,23 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:text=" "
-            android:textColor="@color/Light_blue_700"
+            android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
 
     </GridLayout>
+
+    <Button
+        android:padding="@dimen/dimen_10dp"
+        android:textColor="@color/white"
+        android:background="@drawable/drawable_button"
+        android:id="@+id/restart_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restart Game"
+        app:layout_constraintBottom_toTopOf="@+id/gl_board"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@
         android:topLeftRadius="5dp"
         android:topRightRadius="5dp" />
 
-    <solid android:color="@color/block_background" />
+    <solid android:color="@color/light_blue_700" />
 
     <stroke
         android:width="2dp"

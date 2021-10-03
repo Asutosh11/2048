@@ -36,6 +36,14 @@ class MainVm : BaseViewModel() {
         return view.getY()
     }
 
+    fun clearData(parent: GridLayout){
+        matrix =  Array(4) {Array(4) {""} }
+        for(i in 0 until parent.childCount){
+            val tileTV = parent.getChildAt(i) as TextView
+            tileTV.text = ""
+        }
+    }
+
     /**
      * Read all the Tiles in the GridLayout and put theme into a 2D Matrix sequentially.
      *

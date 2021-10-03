@@ -18,22 +18,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setUI()
+        startGame()
+    }
+
+    fun setUI(){
+        mGridLayout = findViewById(R.id.gl_board) as GridLayout
+        restart_btn.setOnClickListener{
+            startGame()
+        }
+    }
+
+    fun startGame(){
+        setData()
         observeLiveData()
     }
 
-    private fun setUI() {
-        mGridLayout = findViewById(R.id.gl_board) as GridLayout
-        handleSwipes()
+    private fun setData() {
+        viewModel.clearData(mGridLayout)
         viewModel.makeMatrix(mGridLayout)
-        initUIForFirstTime()
-    }
-
-    private fun initUIForFirstTime() {
         viewModel.initGridOnGameStart(mGridLayout)
+        handleSwipes()
     }
-
 
     private fun observeLiveData(){
         viewModel.tileLiveData.observe(this, {

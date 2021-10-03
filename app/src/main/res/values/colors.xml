@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="Light_blue_700">#0091EA</color>
-    <color name="Light_blue_400">#00B0FF</color>
-    <color name="Light_blue_100">#B3E5FC</color>
+    <color name="light_blue_700">#0091EA</color>
+    <color name="light_blue_400">#00B0FF</color>
+    <color name="light_blue_100">#B3E5FC</color>
 
     <color name="white">#FFFFFFFF</color>
     <color name="block_background">#F3F6F6</color>
