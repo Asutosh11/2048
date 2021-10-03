@@ -219,7 +219,7 @@
         android:layout_height="@dimen/dimen_50dp"
         android:background="@drawable/drawable_score_back"
         android:gravity="center"
-        android:text="Score: 150"
+        android:text="Score: 0"
         android:textColor="@color/white"
         android:textSize="@dimen/dimen_15sp"
         app:layout_constraintBottom_toTopOf="@+id/gl_board"

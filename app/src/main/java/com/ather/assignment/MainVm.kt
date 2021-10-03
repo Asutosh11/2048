@@ -15,6 +15,7 @@ class MainVm : BaseViewModel() {
 
     private var matrix =  Array(4) {Array(4) {""} }
 
+    var scoreLiveData: MutableLiveData<Int> = MutableLiveData(0)
     var tileLiveData: MutableLiveData<Tile> = MutableLiveData()
     var gameStartTilesLiveData: MutableLiveData<DoubleTile> = MutableLiveData()
 
@@ -42,6 +43,7 @@ class MainVm : BaseViewModel() {
             val tileTV = parent.getChildAt(i) as TextView
             tileTV.text = ""
         }
+        scoreLiveData.postValue(0)
     }
 
     /**
@@ -319,6 +321,8 @@ class MainVm : BaseViewModel() {
         for(i in 0 until newArray.size-1){
             if(!newArray[i].trim().equals("") && newArray[i].equals(newArray[i+1])){
                 newArray[i] = (newArray[i].toInt()*2).toString()
+                val score = scoreLiveData.value!! + newArray[i].toInt()
+                scoreLiveData.postValue(score)
                 for (j in i+1 until newArray.size-1){
                     newArray[j] = newArray[j+1]
                 }
@@ -344,6 +348,8 @@ class MainVm : BaseViewModel() {
         for(i in newArray.size-1 downTo 1){
             if(!newArray[i].trim().equals("") && newArray[i].equals(newArray[i-1])){
                 newArray[i] = (newArray[i].toInt()*2).toString()
+                val score = scoreLiveData.value!! + newArray[i].toInt()
+                scoreLiveData.postValue(score)
                 for(j in i-1 downTo 1){
                     newArray[j] = newArray[j-1]
                 }

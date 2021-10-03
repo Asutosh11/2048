@@ -47,6 +47,11 @@ class MainActivity : AppCompatActivity() {
                 it.tileView.text = it.numberInString
             }
         })
+        viewModel.scoreLiveData.observe(this, {
+            it.let {
+                score_tv.text = getString(R.string.score_label_to_show) + " " + it.toString()
+            }
+        })
     }
 
 
