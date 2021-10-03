@@ -16,3 +16,7 @@ MVVM with LiveData
 <kbd>
 <img src="https://raw.githubusercontent.com/Asutosh11/2048/master/2048_screen3.png" alt="Screenshot3" width="280px"/>
 </kbd>
+
+### Documentation
+Al functions in MainVM is commented for the work it does and also the parameter it takes. <br/>
+All functions in MainActivity is commented for the wor it does.
