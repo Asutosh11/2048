@@ -333,7 +333,7 @@ class MainVm : BaseViewModel() {
      * array: Array<String> -> 1D array of each row or column
      */
     fun moveEmptyItemsToEnd(array: Array<String>): Array<String> {
-        var newArray =  Array(array.size) {" "}
+        var newArray =  Array(array.size) {""}
         var nonZeroNoCount = -1
 
         for(i in 0 until array.size){
@@ -349,7 +349,7 @@ class MainVm : BaseViewModel() {
                 for (j in i+1 until newArray.size-1){
                     newArray[j] = newArray[j+1]
                 }
-                newArray[newArray.size-1] = " "
+                newArray[newArray.size-1] = ""
             }
         }
         return newArray
@@ -365,7 +365,7 @@ class MainVm : BaseViewModel() {
      * array: Array<String> -> 1D array of each row or column
      */
     fun moveEmptyItemsToBeginning(array: Array<String>): Array<String> {
-        var newArray =  Array(array.size) {" "}
+        var newArray =  Array(array.size) {""}
         var nonZeroNoCount = -1
 
         for(i in array.size-1 downTo 0){
@@ -381,7 +381,7 @@ class MainVm : BaseViewModel() {
                 for(j in i-1 downTo 1){
                     newArray[j] = newArray[j-1]
                 }
-                newArray[0] = " "
+                newArray[0] = ""
             }
         }
         return newArray
