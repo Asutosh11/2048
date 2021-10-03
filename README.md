@@ -18,5 +18,5 @@ MVVM with LiveData
 </kbd>
 
 ### Documentation
-Al functions in MainVM is commented for the work it does and also the parameter it takes. <br/>
-All functions in MainActivity is commented for the wor it does.
+All functions in MainVM are commented for the work they do and also the parameter they take. <br/>
+All functions in MainActivity are commented for the work they do.
