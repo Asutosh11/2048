@@ -1,4 +1,4 @@
-package com.ather.assignment
+package com.ather.assignment.ui
 
 import android.view.View
 import android.widget.GridLayout

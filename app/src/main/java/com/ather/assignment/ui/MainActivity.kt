@@ -1,4 +1,4 @@
-package com.ather.assignment
+package com.ather.assignment.ui
 
 import android.os.Bundle
 import android.widget.GridLayout
@@ -6,6 +6,7 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.ather.assignment.R
 import com.ather.assignment.util.OnSwipeTouchListener
 import kotlinx.android.synthetic.main.activity_main.*
 
