@@ -8,6 +8,7 @@ import com.ather.assignment.base.BaseViewModel
 import com.ather.assignment.data.DoubleTile
 import com.ather.assignment.data.Tile
 
+
 class MainVm : BaseViewModel() {
 
     private val DEBUG_TAG = "DEBUG_TAG_MAIN_VM"
@@ -36,13 +37,10 @@ class MainVm : BaseViewModel() {
     }
 
     /**
-     * Read all the Tiles in the GridLayout and put theme into a HashMap sequentially.
-     * HashMap keys: 1 to 16, sequentially
-     * HashMap values: tags of tiles, as defined in XML layout
+     * Read all the Tiles in the GridLayout and put theme into a 2D Matrix sequentially.
      *
      * This will be used to keep track of and traverse the tiles row-wise or column-wise
-     * when we need to move the tiles. Even if the position of tiles change after sliding/mering,
-     * this HashMap will keep track of their positions
+     * when we need to move the tiles.
      *
      * parent: GridLayout -> The Grid Layout used to make the Tiles View
      */
@@ -72,7 +70,41 @@ class MainVm : BaseViewModel() {
     }
 
     fun getRandomWithinGridSize(fromNumber: Int, tillNumber: Int) : Int {
-        return (fromNumber..tillNumber).random()
+        return (fromNumber..tillNumber-1).random()
+    }
+
+    /**
+     * Populates 2 or 4 on two random tiles when the game starts
+     * parent: GridLayout -> The Grid Layout used to make the Tiles View
+     */
+    fun initGridOnGameStart(parent: GridLayout) {
+        val randomNumber = (0..matrix.size-1).random()
+
+        loop1@ for (i in randomNumber until 4){
+            for(j in randomNumber until 4){
+                if(matrix[i][j].trim().equals("")){
+                    val randomTwoOrFour = if ((0..1).random() == 0) 2 else 4
+                    matrix[i][j] = randomTwoOrFour.toString()
+                    val linearIndex = (i*4) + j
+                    val tileTV = parent.getChildAt(linearIndex) as TextView
+                    tileTV.text = matrix[i][j]
+                    break@loop1
+                }
+            }
+        }
+        loop2@ for (i in 0 until randomNumber){
+            for(j in 0 until randomNumber){
+                if(matrix[i][j].trim().equals("")){
+                    val randomTwoOrFour = if ((0..1).random() == 0) 2 else 4
+                    matrix[i][j] = randomTwoOrFour.toString()
+                    val linearIndex = (i*4) + j
+                    val tileTV = parent.getChildAt(linearIndex) as TextView
+                    tileTV.text = matrix[i][j]
+                    break@loop2
+                }
+            }
+        }
+
     }
 
     /**
@@ -80,27 +112,53 @@ class MainVm : BaseViewModel() {
      * parent: GridLayout -> The Grid Layout used to make the Tiles View
      */
     fun populateRandomTwoOrFour(parent: GridLayout) {
-        val sizeOfGrid: Int = parent.getChildCount()
-        val randomNumber = (0..sizeOfGrid).random()
+        if(!isMatrixFull(matrix)){
+            val randomNumber = (0..matrix.size-1).random()
 
-        for (i in randomNumber until sizeOfGrid) {
-            val tileTV = parent.getChildAt(i) as TextView
-            if (tileTV.text.toString().trim().equals("")) {
-                val randomTwoOrFour = if ((0..1).random() == 0) 2 else 4
-                matrix[randomNumber/4][randomNumber%4] = randomTwoOrFour.toString()
-                tileLiveData.postValue(Tile(tileTV, randomTwoOrFour.toString()))
-                return
+            var randomNumberProduced = false
+
+            for (i in randomNumber until 4){
+                for(j in randomNumber until 4){
+                    if(matrix[i][j].trim().equals("")){
+                        randomNumberProduced = true
+                        val randomTwoOrFour = if ((0..1).random() == 0) 2 else 4
+                        matrix[i][j] = randomTwoOrFour.toString()
+                        val linearIndex = (i*4) + j
+                        val tileTV = parent.getChildAt(linearIndex) as TextView
+                        tileTV.text = matrix[i][j]
+                        return
+                    }
+                }
+            }
+            for (i in 0 until randomNumber){
+                for(j in 0 until randomNumber){
+                    if(matrix[i][j].trim().equals("")){
+                        randomNumberProduced = true
+                        val randomTwoOrFour = if ((0..1).random() == 0) 2 else 4
+                        matrix[i][j] = randomTwoOrFour.toString()
+                        val linearIndex = (i*4) + j
+                        val tileTV = parent.getChildAt(linearIndex) as TextView
+                        tileTV.text = matrix[i][j]
+                        return
+                    }
+                }
+            }
+
+            if(!randomNumberProduced){
+                populateRandomTwoOrFour(parent)
             }
         }
-        for (i in 0 until randomNumber) {
-            val tileTV = parent.getChildAt(i) as TextView
-            if (tileTV.text.toString().trim().equals("")) {
-                val randomTwoOrFour = if ((0..1).random() == 0) 2 else 4
-                matrix[randomNumber/4][randomNumber%4] = randomTwoOrFour.toString()
-                tileLiveData.postValue(Tile(tileTV, randomTwoOrFour.toString()))
-                return
+    }
+
+    fun isMatrixFull(matrix: Array<Array<String>>) : Boolean{
+        for(row in matrix){
+            for(item in row){
+                if(item.trim().equals("")){
+                    return false
+                }
             }
         }
+        return true
     }
 
     fun traverseAndSlideTilesLeft(parent: GridLayout){
@@ -166,7 +224,6 @@ class MainVm : BaseViewModel() {
             matrix[3][i-12] = ListRow4[i-12]
             tileTV.text = ListRow4[i-12]
         }
-        populateRandomTwoOrFour(parent)
     }
 
     fun traverseAndSlideTilesTop(parent: GridLayout){
@@ -200,7 +257,6 @@ class MainVm : BaseViewModel() {
             matrix[i][3] = ListColumn4[i]
             tileTV4.text = ListColumn4[i]
         }
-        var name = ""
         populateRandomTwoOrFour(parent)
     }
 
@@ -240,39 +296,32 @@ class MainVm : BaseViewModel() {
     }
 
     fun moveEmptyItemsToEnd(array: Array<String>): Array<String> {
-        var count = 0
-        var temp: String
+        var newArray =  Array(array.size) {" "}
+        var nonZeroNoCount = -1
 
-        for (i in 0 until array.size) {
-            if (!array[i].trim().equals("")) {
-
-                temp = array[count]
-                array[count] = array[i]
-                array[i] = temp
-                count = count + 1
+        for(i in 0 until array.size){
+            if(!array[i].trim().equals("")){
+                nonZeroNoCount++
+                newArray[nonZeroNoCount] = array[i]
             }
         }
-        return array
+
+        return newArray
     }
 
     fun moveEmptyItemsToBeginning(array: Array<String>): Array<String> {
-        var k = 0
-        for (i in 0 until array.size) {
-            if (array[i].trim().equals("")) {
-                val temp: String = array[i]
-                array[i] = array.get(k)
-                array[k] = temp
-                k++
+
+        var newArray =  Array(array.size) {" "}
+        var nonZeroNoCount = -1
+
+        for(i in array.size-1 downTo 0){
+            if(!array[i].trim().equals("")){
+                nonZeroNoCount++
+                newArray[newArray.size-nonZeroNoCount-1] = array[i]
             }
         }
-        return array
+
+        return newArray
     }
 
-    /*fun traverseGrid(mlayout: GridLayout) {
-        val count: Int = mlayout.getChildCount()
-        for (i in 0 until count) {
-            val child = mlayout. as TextView
-            Log.d(DEBUG_TAG, child.text.toString())
-        }
-    }*/
 }

@@ -26,49 +26,12 @@ class MainActivity : AppCompatActivity() {
     private fun setUI() {
         mGridLayout = findViewById(R.id.gl_board) as GridLayout
         handleSwipes()
-        initUIForFirstTime()
         viewModel.makeMatrix(mGridLayout)
+        initUIForFirstTime()
     }
 
     private fun initUIForFirstTime() {
-        val randomNumber1 = viewModel.getRandomWithinGridSize(0, 8)
-        val randomNumber2 = viewModel.getRandomWithinGridSize(9,16)
-        when(randomNumber1){
-            0 -> tv_tile1.text = viewModel.getRandomTwoOrFour()
-            1 -> tv_tile2.text = viewModel.getRandomTwoOrFour()
-            2 -> tv_tile3.text = viewModel.getRandomTwoOrFour()
-            3 -> tv_tile4.text = viewModel.getRandomTwoOrFour()
-            4 -> tv_tile5.text = viewModel.getRandomTwoOrFour()
-            5 -> tv_tile6.text = viewModel.getRandomTwoOrFour()
-            6 -> tv_tile7.text = viewModel.getRandomTwoOrFour()
-            7 -> tv_tile8.text = viewModel.getRandomTwoOrFour()
-            8 -> tv_tile9.text = viewModel.getRandomTwoOrFour()
-            9 -> tv_tile10.text = viewModel.getRandomTwoOrFour()
-            10 -> tv_tile11.text = viewModel.getRandomTwoOrFour()
-            11 -> tv_tile12.text = viewModel.getRandomTwoOrFour()
-            12 -> tv_tile13.text = viewModel.getRandomTwoOrFour()
-            13 -> tv_tile14.text = viewModel.getRandomTwoOrFour()
-            14 -> tv_tile15.text = viewModel.getRandomTwoOrFour()
-            15 -> tv_tile16.text = viewModel.getRandomTwoOrFour()
-        }
-        when(randomNumber2){
-            0 -> tv_tile1.text = viewModel.getRandomTwoOrFour()
-            1 -> tv_tile2.text = viewModel.getRandomTwoOrFour()
-            2 -> tv_tile3.text = viewModel.getRandomTwoOrFour()
-            3 -> tv_tile4.text = viewModel.getRandomTwoOrFour()
-            4 -> tv_tile5.text = viewModel.getRandomTwoOrFour()
-            5 -> tv_tile6.text = viewModel.getRandomTwoOrFour()
-            6 -> tv_tile7.text = viewModel.getRandomTwoOrFour()
-            7 -> tv_tile8.text = viewModel.getRandomTwoOrFour()
-            8 -> tv_tile9.text = viewModel.getRandomTwoOrFour()
-            9 -> tv_tile10.text = viewModel.getRandomTwoOrFour()
-            10 -> tv_tile11.text = viewModel.getRandomTwoOrFour()
-            11 -> tv_tile12.text = viewModel.getRandomTwoOrFour()
-            12 -> tv_tile13.text = viewModel.getRandomTwoOrFour()
-            13 -> tv_tile14.text = viewModel.getRandomTwoOrFour()
-            14 -> tv_tile15.text = viewModel.getRandomTwoOrFour()
-            15 -> tv_tile16.text = viewModel.getRandomTwoOrFour()
-        }
+        viewModel.initGridOnGameStart(mGridLayout)
     }
 
 
