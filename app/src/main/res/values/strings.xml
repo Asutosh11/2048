@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">2048 Clone</string>
     <string name="score_label_to_show">Score:</string>
+    <string name="empty_quotes">  </string>
 </resources>

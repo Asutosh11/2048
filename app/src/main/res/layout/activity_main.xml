@@ -27,7 +27,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile1"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -38,7 +38,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile2"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -49,7 +49,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile3"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -60,7 +60,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile4"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -71,7 +71,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile5"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -82,7 +82,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile6"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -93,7 +93,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile7"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -104,7 +104,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile8"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -115,7 +115,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile9"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -126,7 +126,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile10"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -137,7 +137,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile11"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -148,7 +148,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile12"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -159,7 +159,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile13"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -170,7 +170,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile14"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -181,7 +181,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile15"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
@@ -192,7 +192,7 @@
             android:background="@drawable/drawable_tile_back"
             android:gravity="center"
             android:tag="tile16"
-            android:text=" "
+            android:text="@string/empty_quotes"
             android:textColor="@color/light_blue_700"
             android:textSize="@dimen/dimen_20sp" />
 
