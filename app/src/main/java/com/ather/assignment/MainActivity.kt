@@ -54,23 +54,6 @@ class MainActivity : AppCompatActivity() {
 
         cl_root.setOnTouchListener(object: OnSwipeTouchListener(this@MainActivity) {
             override fun onSwipeLeft() {
-
-                /*val x1: Float
-                val y1: Float
-                val x2: Float
-                val y2: Float
-                x1 = viewModel.getXCoordinate(tv_tile1)
-                y1 = viewModel.getYCoordinate(tv_tile1)
-                x2 = viewModel.getXCoordinate(tv_tile2)
-                y2 = viewModel.getYCoordinate(tv_tile2)
-
-                val x_displacement = x2 - x1
-                val y_displacement = y2 - y1
-
-                tv_tile1.animate().xBy(x_displacement).yBy(y_displacement)
-                tv_tile2.animate().xBy(-x_displacement).yBy(-y_displacement)*/
-
-                // viewModel.populateRandomTwoOrFour(mGridLayout)
                 viewModel.traverseAndSlideTilesLeft(mGridLayout)
                 super.onSwipeLeft()
             }

@@ -303,6 +303,9 @@ class MainVm : BaseViewModel() {
         populateRandomTwoOrFour(parent)
     }
 
+    /**
+     * For left and top swipe
+     */
     fun moveEmptyItemsToEnd(array: Array<String>): Array<String> {
         var newArray =  Array(array.size) {" "}
         var nonZeroNoCount = -1
@@ -313,12 +316,19 @@ class MainVm : BaseViewModel() {
                 newArray[nonZeroNoCount] = array[i]
             }
         }
-
+        for(i in 0 until newArray.size-1){
+            if(!newArray[i].trim().equals("") && newArray[i].equals(newArray[i+1])){
+                newArray[i] = (newArray[i].toInt()*2).toString()
+                for (j in i+1 until newArray.size-1){
+                    newArray[j] = newArray[j+1]
+                }
+                newArray[newArray.size-1] = " "
+            }
+        }
         return newArray
     }
 
     fun moveEmptyItemsToBeginning(array: Array<String>): Array<String> {
-
         var newArray =  Array(array.size) {" "}
         var nonZeroNoCount = -1
 
@@ -328,7 +338,15 @@ class MainVm : BaseViewModel() {
                 newArray[newArray.size-nonZeroNoCount-1] = array[i]
             }
         }
-
+        for(i in newArray.size-1 downTo 1){
+            if(!newArray[i].trim().equals("") && newArray[i].equals(newArray[i-1])){
+                newArray[i] = (newArray[i].toInt()*2).toString()
+                for(j in i-1 downTo 1){
+                    newArray[j] = newArray[j-1]
+                }
+                newArray[0] = " "
+            }
+        }
         return newArray
     }
 
